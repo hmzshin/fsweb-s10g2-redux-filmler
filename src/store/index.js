@@ -1,7 +1,7 @@
-import { combineReducers, configureStore } from "redux";
+import { combineReducers, legacy_createStore as createStore } from "redux";
 
 import movieReducer from "../store/reducers/movieReducer";
 
 const reducers = combineReducers({ movie: movieReducer });
 
-export default store = configureStore(reducers);
+export const store = createStore(reducers);
