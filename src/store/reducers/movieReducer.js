@@ -14,6 +14,12 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         movies: state.movies.filter((item) => action.payload !== item.id),
       };
+    case ADD_MOVIE:
+      console.log("delete case i çalıştı", action.payload);
+      return {
+        ...state,
+        movies: [...state.movies, action.payload],
+      };
     default:
       return state;
   }
