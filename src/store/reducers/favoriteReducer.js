@@ -4,14 +4,14 @@ import {
   TOGGLE_FAVORITES,
 } from "../../actions/favoritesActions.js";
 
-const initialState = { favorites: [], displayFavorites: false };
+const initialState = { favorites: [], displayFavorites: true };
 
 const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
     case REMOVE_FAVORITE:
       return {
         ...state,
-        movies: state.favorites.filter((item) => action.payload !== item.id),
+        favorites: state.favorites.filter((item) => action.payload !== item.id),
       };
     case ADD_FAVORITE:
       const exist = state.favorites.filter(
