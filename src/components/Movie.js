@@ -14,6 +14,9 @@ const Movie = () => {
   const movies = useSelector((store) => store.movie.movies);
   const movie = movies.find((movie) => movie.id === Number(id));
 
+  const favorites = useSelector((store) => store.favorite.favorites);
+  const favorite = favorites.find((movie) => movie.id === Number(id));
+
   function deleteHandler(value) {
     dispatch(deleteMovie(value));
     push("/movies");

@@ -8,15 +8,17 @@ const initialState = { favorites: [], displayFavorites: false };
 
 const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case REMOVE_FAVORITE:
-    //   return {
-    //     ...state,
-    //     movies: state.movies.filter((item) => action.payload !== item.id),
-    //   };
-    case ADD_FAVORITE:
+    case REMOVE_FAVORITE:
       return {
         ...state,
-        favorites: [...state.favorites, action.payload],
+        movies: state.favorites.filter((item) => action.payload !== item.id),
+      };
+    case ADD_FAVORITE:
+
+    case TOGGLE_FAVORITES:
+      return {
+        ...state,
+        displayFavorites: action.payload,
       };
     default:
       return state;
