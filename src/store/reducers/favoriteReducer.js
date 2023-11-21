@@ -14,6 +14,17 @@ const favoriteReducer = (state = initialState, action) => {
         movies: state.favorites.filter((item) => action.payload !== item.id),
       };
     case ADD_FAVORITE:
+      const exist = state.favorites.filter(
+        (movie) => action.payload.id == movie.id
+      ).length;
+      if (exist == 0) {
+        return {
+          ...state,
+          favorites: [...state.favorites, action.payload],
+        };
+      } else {
+        return state;
+      }
 
     case TOGGLE_FAVORITES:
       return {
